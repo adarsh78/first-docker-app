@@ -14,6 +14,8 @@ const App = () => {
 
     <p>Learning how to manually dockerise an app and automation as well</p>
     <p>For manual depoly - code change - push to github - build and run container</p>
+
+    <p>Manually deployed github action workflows are pushing the code and pushing docker image to docker hub</p>
     </>
   )
 }
