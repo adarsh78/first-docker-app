@@ -11,6 +11,9 @@ const App = () => {
     <h2>Displaying name: {name}</h2>
 
     <button onClick={() => setName("Adarsh")}>Display name</button>
+
+    <p>Learning how to manually dockerise an app and automation as well</p>
+    <p>For manual depoly - code change - push to github - build and run container</p>
     </>
   )
 }
