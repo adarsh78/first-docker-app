@@ -3,11 +3,11 @@ name: Deploy React App with Docker
 on:
   push:
     branches:
-      - main # sirf main branch pe push hone par chalega
+      - main # It will work when we push to main branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest # GitHub apna Ubuntu machine uthata hai iske liye
+    runs-on: ubuntu-latest # Github will take its Ubuntu machine for this
 
     steps:
       - name: Checkout repository

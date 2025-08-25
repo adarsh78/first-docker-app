@@ -1,29 +1,29 @@
-# Step 1: Node image le rahe hain
+# Step 1: Getting Node Image
 FROM node:18-alpine AS build
 
-# Work directory set karte hain
+# Setting Work Directory
 WORKDIR /app
 
-# package.json aur package-lock.json copy karo
+# Copying package.json and package-lock.json
 COPY package*.json ./
 
 # Dependencies install
 RUN npm install
 
-# Baaki saari files copy karo
+# Copy rest of the files (all files)
 COPY . .
 
-# React app build karo (dist folder banega)
+# Build React App (it will create a dist folder)
 RUN npm run build
 
-# Step 2: Nginx se serve karna (dist ko production ke liye)
+# Step 2: Serve through Nginx (production for dist)
 FROM nginx:alpine
 
-# build ka dist folder nginx ke html folder me daal do
+# Copy dist folder from build to html folder of Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
 # Nginx default port expose
 EXPOSE 80
 
-# Nginx ko run karne ka command
+# Commands to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
